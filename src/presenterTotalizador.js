@@ -8,6 +8,7 @@ form.addEventListener("submit", (event) => {
   var estado=document.getElementById("estado");
   var codigoEstado=estado.options[estado.selectedIndex].text;
   var impuesto;
+  var precioNeto=precio*cantidad;
   if(codigoEstado==="UT")
   {
     impuesto=0.0665;
@@ -37,6 +38,7 @@ form.addEventListener("submit", (event) => {
         }
     }
   }
-  div.innerHTML = "<p> Cantidad: "+cantidad +"</p><p> Precio:"+ precio+"</p><p> Estado:"+codigoEstado+"</p> <p> Impuesto: "+impuesto*100+"% </p>";
+  var tPrecioNeto="Precio neto: $"+precioNeto;
+  div.innerHTML = tPrecioNeto;
 });
 
