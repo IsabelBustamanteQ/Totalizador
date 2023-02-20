@@ -75,8 +75,8 @@ form.addEventListener("submit", (event) => {
   var impuesto=(precioNeto-descuento)*porcentajeImpuesto;
   var precioTotal=(precioNeto-descuento)+impuesto;
   var tPrecioNeto="<p>Precio neto: $"+precioNeto+"</p>";
-  var tDescuento="<p> Descuento: $"+descuento+"</p>";
-  var tImpuesto="<p>Impuesto para "+codigoEstado+": $"+impuesto+"</p>";
+  var tDescuento="<p> Descuento("+porcentajeDescuento*100+"%): $"+descuento+"</p>";
+  var tImpuesto="<p>Impuesto para "+codigoEstado+"("+porcentajeImpuesto*100+"%): $"+impuesto+"</p>";
   var tPrecioTotal="<p> Precio total: $"+precioTotal+"</p>";
   div.innerHTML = tPrecioNeto+tDescuento + tImpuesto+tPrecioTotal;
 });
