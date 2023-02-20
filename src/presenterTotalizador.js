@@ -9,6 +9,7 @@ form.addEventListener("submit", (event) => {
   var codigoEstado=estado.options[estado.selectedIndex].text;
   var porcentajeImpuesto;
   var precioNeto=precio*cantidad;
+  var porcentajeDescuento=0;
   if(codigoEstado==="UT")
   {
     porcentajeImpuesto=0.0665;
@@ -38,11 +39,45 @@ form.addEventListener("submit", (event) => {
         }
     }
   }
-  var impuesto=precioNeto*porcentajeImpuesto;
-  var precioTotal=precioNeto+impuesto;
+  if(cantidad>=30000)
+  {
+    porcentajeDescuento=0.15;
+  }
+  else
+  {
+    if(cantidad>=10000)
+    {
+        porcentajeDescuento=0.10;
+    }
+    else
+    {
+        if(cantidad>=7000)
+        {
+            porcentajeDescuento=0.07;
+        }
+        else
+        {
+            if(cantidad>=3000)
+            {
+                porcentajeDescuento=0.05;
+            }
+            else
+            {
+                if(cantidad>=1000)
+                {
+                    porcentajeDescuento=0.03;
+                }
+            }
+        }
+    }
+  }
+  var descuento=precioNeto*porcentajeDescuento;
+  var impuesto=(precioNeto-descuento)*porcentajeImpuesto;
+  var precioTotal=(precioNeto-descuento)+impuesto;
   var tPrecioNeto="<p>Precio neto: $"+precioNeto+"</p>";
+  var tDescuento="<p> Descuento: $"+descuento+"</p>";
   var tImpuesto="<p>Impuesto para "+codigoEstado+": $"+impuesto+"</p>";
   var tPrecioTotal="<p> Precio total: $"+precioTotal+"</p>";
-  div.innerHTML = tPrecioNeto + tImpuesto+tPrecioTotal;
+  div.innerHTML = tPrecioNeto+tDescuento + tImpuesto+tPrecioTotal;
 });
 
