@@ -38,7 +38,7 @@ form.addEventListener("submit", (event) => {
         }
     }
   }
-  impuesto=precioNeto*porcentajeImpuesto;
+  var impuesto=precioNeto*porcentajeImpuesto;
   var precioTotal=precioNeto+impuesto;
   var tPrecioNeto="<p>Precio neto: $"+precioNeto+"</p>";
   var tImpuesto="<p>Impuesto para "+codigoEstado+": $"+impuesto+"</p>";
