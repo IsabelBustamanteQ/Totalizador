@@ -4,6 +4,7 @@ const div = document.querySelector("#resultado-div");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   var cantidad=document.querySelector("#cantidad").value;
-  div.innerHTML = cantidad;
+  var precio=document.querySelector("#precio").value;
+  div.innerHTML = "Cantidad: "+cantidad +", Precio:"+ precio;
 });
 
