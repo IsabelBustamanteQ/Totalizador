@@ -6,9 +6,21 @@
         <form id="totalizador-form">
             <p>
                 <label for="Cantidad">Cantidad de item:</label>
-                <input type="number" id="cantidad" min="0"/> 
+                <input type="number" id="cantidad" min="0"/>
+            </p>
+            <p> 
                 <label for="Precio">Precio de item:</label>
                 <input type="float" id="precio" min="0,0"/> 
+            </p>
+            <p>
+                <label for="Estado"> Codigo de estado:</label>
+                <select id="estado">
+                    <option value="0">UT</option>
+                    <option value="1">NV</option>
+                    <option value="2">TX</option>
+                    <option value="3">AL</option>
+                    <option value="4">CA</option>
+                  </select>
             </p>
             <input type="submit" value="Mostrar" id="mostrar-button" />
         </form>
